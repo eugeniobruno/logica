@@ -1,5 +1,11 @@
 # Logica
 
+[![Gem Version](https://badge.fury.io/rb/logica.svg)](https://badge.fury.io/rb/logica)
+[![Build Status](https://travis-ci.org/eugeniobruno/logica.svg?branch=master)](https://travis-ci.org/eugeniobruno/logica)
+[![Coverage Status](https://coveralls.io/repos/github/eugeniobruno/logica/badge.svg?branch=master)](https://coveralls.io/github/eugeniobruno/logica?branch=master)
+[![Code Climate](https://codeclimate.com/github/eugeniobruno/logica.svg)](https://codeclimate.com/github/eugeniobruno/logica)
+[![Dependency Status](https://gemnasium.com/eugeniobruno/logica.svg)](https://gemnasium.com/eugeniobruno/logica)
+
 Logica is a reusable implementation of the Specification design pattern, or a framework to manage predicates of arbitrary complexity.
 
 ## Installation
