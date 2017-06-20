@@ -101,6 +101,10 @@ module Logica
         "#{name_and_attributes}#{to_s_suffix}"
       end
 
+      def name_and_attributes
+        "#{name}(#{attributes.values.join(', ')})"
+      end
+
       def method_missing(name, *args, &block)
         if name.to_s.start_with?('and_with_')
           and_with_other(*args)
@@ -164,10 +168,6 @@ module Logica
 
       def without_predicates(preds, options = {})
         preds.include?(self) ? [] : [self]
-      end
-
-      def name_and_attributes
-        "#{name}(#{attributes.values.join(', ')})"
       end
 
       def to_s_suffix
