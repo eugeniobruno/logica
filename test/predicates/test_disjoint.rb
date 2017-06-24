@@ -64,11 +64,11 @@ class TestDisjoint < Logica::Test
     assert( disjunction2.satisfied_by?(hash4))
   end
 
-  def test_degenerated_conjunction_1
+  def test_degenerated_conjunction1
     assert_equal contradiction, conjunction(color_predicates)
   end
 
-  def test_degenerated_conjunction_2
+  def test_degenerated_conjunction2
     color_predicates.combination(2) do |p1, p2|
       assert_equal contradiction, p1.and(p2)
       assert_equal contradiction, p2.and(p1)
