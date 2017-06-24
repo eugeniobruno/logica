@@ -7,7 +7,7 @@ require 'logica/version'
 Gem::Specification.new do |spec|
   spec.name     = 'logica'
   spec.version  = Logica::VERSION
-  spec.date     = '2017-06-20'
+  spec.date     = '2017-06-24'
   spec.authors  = ['Eugenio Bruno']
   spec.email    = ['eugeniobruno@gmail.com']
 
