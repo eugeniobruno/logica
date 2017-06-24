@@ -6,7 +6,7 @@ class TestDisjunction < Logica::Test
   end
 
   def test_unitary
-    assert_equal(unitary_disjunction, unrelated_predicates.first)
+    assert_equal(unitary_disjunction, unrelated_predicates[0])
   end
 
   def test_construction
@@ -52,7 +52,7 @@ class TestDisjunction < Logica::Test
   end
 
   def test_idempotence1
-    assert_equal(unrelated_predicates.first, unrelated_predicates.first.or(unrelated_predicates.first))
+    assert_equal(unrelated_predicates[0], unrelated_predicates[0].or(unrelated_predicates[0]))
   end
 
   def test_idempotence2
@@ -72,13 +72,13 @@ class TestDisjunction < Logica::Test
   end
 
   def test_subsumption
-    assert_equal(first_disjunction, first_disjunction.or(unrelated_predicates.first))
-    assert_equal(first_disjunction, unrelated_predicates.first.or(first_disjunction))
+    assert_equal(first_disjunction, first_disjunction.or(unrelated_predicates[0]))
+    assert_equal(first_disjunction, unrelated_predicates[0].or(first_disjunction))
   end
 
   def test_annihilation1
-    assert_equal(tautology, first_disjunction.or(unrelated_predicates.first.negated))
-    assert_equal(tautology, unrelated_predicates.first.negated.or(first_disjunction))
+    assert_equal(tautology, first_disjunction.or(unrelated_predicates[0].negated))
+    assert_equal(tautology, unrelated_predicates[0].negated.or(first_disjunction))
   end
 
   def test_annihilation2
@@ -125,7 +125,7 @@ class TestDisjunction < Logica::Test
   end
 
   def unitary_disjunction
-    disjunction([unrelated_predicates.first])
+    disjunction([unrelated_predicates[0]])
   end
 
   def first_disjunction

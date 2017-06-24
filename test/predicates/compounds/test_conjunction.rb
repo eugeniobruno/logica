@@ -6,7 +6,7 @@ class TestConjunction < Logica::Test
   end
 
   def test_unitary
-    assert_equal(unitary_conjunction, unrelated_predicates.first)
+    assert_equal(unitary_conjunction, unrelated_predicates[0])
   end
 
   def test_construction
@@ -52,7 +52,7 @@ class TestConjunction < Logica::Test
   end
 
   def test_idempotence1
-    assert_equal(unrelated_predicates.first, unrelated_predicates.first.and(unrelated_predicates.first))
+    assert_equal(unrelated_predicates[0], unrelated_predicates[0].and(unrelated_predicates[0]))
   end
 
   def test_idempotence2
@@ -72,13 +72,13 @@ class TestConjunction < Logica::Test
   end
 
   def test_subsumption
-    assert_equal(first_conjunction, first_conjunction.and(unrelated_predicates.first))
-    assert_equal(first_conjunction, unrelated_predicates.first.and(first_conjunction))
+    assert_equal(first_conjunction, first_conjunction.and(unrelated_predicates[0]))
+    assert_equal(first_conjunction, unrelated_predicates[0].and(first_conjunction))
   end
 
   def test_annihilation1
-    assert_equal(contradiction, first_conjunction.and(is_even.negated))
-    assert_equal(contradiction, is_even.negated.and(first_conjunction))
+    assert_equal(contradiction, first_conjunction.and(unrelated_predicates[0].negated))
+    assert_equal(contradiction, unrelated_predicates[0].negated.and(first_conjunction))
   end
 
   def test_annihilation2
@@ -125,7 +125,7 @@ class TestConjunction < Logica::Test
   end
 
   def unitary_conjunction
-    conjunction([unrelated_predicates.first])
+    conjunction([unrelated_predicates[0]])
   end
 
   def first_conjunction
