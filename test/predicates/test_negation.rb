@@ -20,6 +20,10 @@ class TestNegation < Logica::Test
     assert_equal(contradiction, is_odd.remainder_unsatisfied_by(3))
   end
 
+  def test_specialization_of_itself
+    assert(is_odd.specialization_of?(is_odd))
+  end
+
   def test_arity
     assert_equal(1, is_odd.arity)
   end

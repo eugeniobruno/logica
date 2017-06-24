@@ -80,7 +80,7 @@ module Logica
         end
 
         def annihilated_by?(other)
-          predicates.any? { |own_predicate| annihilation?(own_predicate, other) }
+          ([self] + predicates).any? { |pred| annihilation?(pred, other) }
         end
 
         def subsumes?(other)

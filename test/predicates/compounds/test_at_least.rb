@@ -65,6 +65,10 @@ class TestAtLeast < Logica::Test
     assert_equal(contradiction, at_least(4, unrelated_predicates))
   end
 
+  def test_specialization_of_itself
+    assert(at_least_two.specialization_of?(at_least_two))
+  end
+
   def test_to_disjunction
     conjuntion1 = unrelated_predicates[0].and(unrelated_predicates[1])
     conjuntion2 = unrelated_predicates[0].and(unrelated_predicates[2])

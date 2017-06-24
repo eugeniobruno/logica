@@ -17,6 +17,18 @@ class TestAdHoc < Logica::Test
     end
   end
 
+  def test_annihilation1
+    assert_equal(contradiction, greater_than_five.and_not(greater_than_five))
+  end
+
+  def test_annihilation2
+    assert_equal(tautology, greater_than_five.or_not(greater_than_five))
+  end
+
+  def test_specialization_of_itself
+    assert(greater_than_five.specialization_of?(greater_than_five))
+  end
+
   def test_to_s
     assert_equal('MoreThan5() |1|', greater_than_five.to_s)
   end

@@ -93,6 +93,10 @@ class TestBasic < Logica::Test
     assert(!is_greater_than_five_iff_is_even.satisfied_by?(7))
   end
 
+  def test_specialization_of_itself
+    assert(is_even.specialization_of?(is_even))
+  end
+
   def test_arity
     assert_equal(1, is_even.arity)
     assert_equal(1, is_greater_than_five.arity)

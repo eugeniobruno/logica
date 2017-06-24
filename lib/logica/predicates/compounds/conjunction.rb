@@ -33,7 +33,8 @@ module Logica
         end
 
         def specialization_of_other?(other)
-          predicates.any? { |predicate| predicate.specialization_of?(other) }
+          other.generalization_of_other?(self) ||
+          predicates.any? { |pred| pred.specialization_of?(other) }
         end
 
         def portion_satisfied_by(*arguments)

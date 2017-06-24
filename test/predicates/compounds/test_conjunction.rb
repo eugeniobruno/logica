@@ -63,6 +63,14 @@ class TestConjunction < Logica::Test
     assert_equal(contradiction, contradiction.and(contradiction))
   end
 
+  def test_idempotence4
+    assert_equal(example_conjunction, example_conjunction.and(example_conjunction))
+  end
+
+  def test_idempotence5
+    assert_equal(example_disjunction, example_disjunction.and(example_disjunction))
+  end
+
   def test_subsumption
     assert_equal(first_conjunction, first_conjunction.and(unrelated_predicates.first))
     assert_equal(first_conjunction, unrelated_predicates.first.and(first_conjunction))
@@ -80,6 +88,18 @@ class TestConjunction < Logica::Test
 
   def test_annihilation3
     assert_equal(contradiction, annihilating_conjunction.and(full_conjunction))
+  end
+
+  def test_annihilation4
+    assert_equal(contradiction, example_conjunction.and_not(example_conjunction))
+  end
+
+  def test_annihilation5
+    assert_equal(contradiction, example_disjunction.and_not(example_disjunction))
+  end
+
+  def test_specialization_of_itself
+    assert(full_conjunction.specialization_of?(full_conjunction))
   end
 
   def test_arity
