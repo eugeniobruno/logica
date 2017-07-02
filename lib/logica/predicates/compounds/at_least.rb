@@ -82,7 +82,15 @@ module Logica
         end
 
         def do_method_missing(name, *args, &block)
-          to_disjunction.do_method_missing(name, *args, &block)
+          if respond_to?(name)
+            to_disjunction.public_send(name, *args, &block)
+          else
+            super
+          end
+        end
+
+        def do_respond_to_missing?(method_name, include_private = false)
+          to_disjunction.respond_to?(method_name) || super
         end
       end
     end

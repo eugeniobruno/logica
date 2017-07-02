@@ -84,9 +84,19 @@ class TestAtLeast < Logica::Test
     assert_equal('AtLeast(2, [IsDivisibleBy(2), IsDivisibleBy(3), IsDivisibleBy(5)]) |1|', at_least_two.to_s)
   end
 
-  def test_method_missing
+  def test_method_missing1
     assert_raises(NoMethodError) do
       at_least_two.foo
     end
+  end
+
+  def test_method_missing2
+    predicate_factory.send(:disjunction_class).send(:define_method, :for_testing) { 'for testing' }
+    assert_equal('for testing', at_least_two.for_testing)
+  end
+
+  def test_method_missing3
+    predicate_factory.send(:disjunction_class).send(:define_method, :for_testing) { 'for testing' }
+    assert_equal('for testing', at_least_two.method(:for_testing).call)
   end
 end
